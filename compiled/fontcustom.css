@@ -4,10 +4,10 @@
 
 @font-face {
   font-family: "hatchd-eggbox";
-  src: url("hatchd-eggbox-6036a91170b97ff5148e58dc7d20868d.eot?#iefix") format("embedded-opentype"),
-       url("hatchd-eggbox-6036a91170b97ff5148e58dc7d20868d.woff") format("woff"),
-       url("hatchd-eggbox-6036a91170b97ff5148e58dc7d20868d.ttf") format("truetype"),
-       url("hatchd-eggbox-6036a91170b97ff5148e58dc7d20868d.svg#hatchd-eggbox") format("svg");
+  src: url("hatchd-eggbox-dd10d5ea73c32d1fa4e64da0b697d2f6.eot?#iefix") format("embedded-opentype"),
+       url("hatchd-eggbox-dd10d5ea73c32d1fa4e64da0b697d2f6.woff") format("woff"),
+       url("hatchd-eggbox-dd10d5ea73c32d1fa4e64da0b697d2f6.ttf") format("truetype"),
+       url("hatchd-eggbox-dd10d5ea73c32d1fa4e64da0b697d2f6.svg#hatchd-eggbox") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -69,6 +69,64 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
   Icon Classes
 */
 
-.icon-screw:before { content: "\f100"; }
-.icon-spiral:before { content: "\f101"; }
-.icon-squiggle:before { content: "\f102"; }
+.icon-arrows-keyline-down:before { content: "\f100"; }
+.icon-arrows-keyline-left:before { content: "\f101"; }
+.icon-arrows-keyline-right:before { content: "\f102"; }
+.icon-arrows-keyline-up:before { content: "\f103"; }
+.icon-social-facebook:before { content: "\f104"; }
+.icon-social-foursquare:before { content: "\f105"; }
+.icon-social-googleplus:before { content: "\f106"; }
+.icon-social-linkedin:before { content: "\f107"; }
+.icon-social-twitter-fill:before { content: "\f108"; }
+.icon-social-twitter:before { content: "\f109"; }
+.icon-ui-menutoggle:before { content: "\f10a"; }
+
+.lt-ie8{
+
+  
+    .icon-arrows-keyline-down{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61696;&nbsp;');
+    }
+  
+    .icon-arrows-keyline-left{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61697;&nbsp;');
+    }
+  
+    .icon-arrows-keyline-right{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61698;&nbsp;');
+    }
+  
+    .icon-arrows-keyline-up{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61699;&nbsp;');
+    }
+  
+    .icon-social-facebook{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61700;&nbsp;');
+    }
+  
+    .icon-social-foursquare{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61701;&nbsp;');
+    }
+  
+    .icon-social-googleplus{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61702;&nbsp;');
+    }
+  
+    .icon-social-linkedin{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61703;&nbsp;');
+    }
+  
+    .icon-social-twitter-fill{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61704;&nbsp;');
+    }
+  
+    .icon-social-twitter{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61705;&nbsp;');
+    }
+  
+    .icon-ui-menutoggle{
+      *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#61706;&nbsp;');
+    }
+  
+
+}
