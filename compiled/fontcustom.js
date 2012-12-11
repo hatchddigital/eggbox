@@ -4,7 +4,7 @@
 function addicons(){
   //Create object with list of icons
   var icons = {
-
+  	
     ".icon-arrows-keyline-down": "&#xf100;",
     ".icon-arrows-keyline-left": "&#xf101;",
     ".icon-arrows-keyline-right": "&#xf102;",
@@ -21,7 +21,7 @@ function addicons(){
     ".icon-ui-refresh": "&#xf10d;",
     ".icon-ui-search": "&#xf10e;",
     ".icon-ui-settings": "&#xf10f;",
-    ".icon-ui-tab": "&#xf110;"
+    ".icon-ui-tab": "&#xf110;",
   };
 
   //Detect IE version
