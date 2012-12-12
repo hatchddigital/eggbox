@@ -75,3 +75,24 @@ body{
 			font-size:0.71em;
 			line-height:1.3em;
 		}
+
+	/*Run clearfix on icon list*/
+	.demo-iconlist:after{
+		visibility:hidden;
+		display:block;
+		font-size:0;
+		content:" ";
+		clear:both;
+		height:0;
+	}
+	.demo-iconlist{
+		display:inline-block;
+	}
+	/* Start commented backslash hack \*/
+		* html .demo-iconlist{
+			height:1%;
+		}
+		.demo-iconlist{
+			display:block;
+		}
+	/* Close commented backslash hack */
