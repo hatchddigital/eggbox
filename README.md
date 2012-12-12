@@ -27,7 +27,7 @@ A custom, configurable icon font set using a slightly modified version of the br
 		cd/[path-to-repo]/
 		sudo gem install fontcustom
 
-	* If you accidentally install the Gem from the Ruby Gem site this will wipe the slate clean:
+* If you accidentally install the Gem from the Ruby Gem site this will wipe the slate clean:
 
 		sudo gem uninstall fontcustom
 
