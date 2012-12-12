@@ -17,7 +17,7 @@ A custom, configurable icon font set using a slightly modified version of the br
 3. Install the gem from the cloned repo
 
 		cd/[path-to-repo]/
-		gem install fontcustom
+		sudo gem install fontcustom
 
 ### Step 2: Clone the Eggbox repo and generate the icon set
 
