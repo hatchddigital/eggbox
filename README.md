@@ -14,10 +14,22 @@ A custom, configurable icon font set using a slightly modified version of the br
 
 		git clone git@github.com:hatchddigital/fontcustom.git
 
-3. Install the gem from the cloned repo
+3. Install Homebrew
+
+		ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+
+4. Install fontforge
+
+		sudo brew install fontforge eot-utils ttfautohint
+
+5. Install the gem from the cloned repo
 
 		cd/[path-to-repo]/
 		sudo gem install fontcustom
+
+	* If you accidentally install the Gem from the Ruby Gem site this will wipe the slate clean:
+
+		sudo gem uninstall fontcustom
 
 ### Step 2: Clone the Eggbox repo and generate the icon set
 
