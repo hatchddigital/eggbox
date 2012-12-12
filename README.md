@@ -8,24 +8,24 @@ A custom, configurable icon font set using a slightly modified version of the br
 
 1. If on a Mac, install xCode from the App store, and enable Command Line Tools
 
-	(Preferences > Downloads > Command Line Tools)
+		(Preferences > Downloads > Command Line Tools)
 
 2. Clone the Fontcustom repo we've forked and modified
 
-	git clone git@github.com:hatchddigital/fontcustom.git
+		git clone git@github.com:hatchddigital/fontcustom.git
 
 3. Install the gem from the cloned repo
 
-	cd/[path-to-repo]/
-	gem install fontcustom
+		cd/[path-to-repo]/
+		gem install fontcustom
 
 ### Step 2: Clone the Eggbox repo and generate the icon set
 
 1. Clone the eggbox repo
 
-	git clone git@github.com:hatchddigital/eggbox.git
+		git clone git@github.com:hatchddigital/eggbox.git
 
 2. Generate your first icon set
 
-	fontcustom compile [location of repo]/src -n "Hatchd-eggbox" -o [location of repo]/compiled/
+		fontcustom compile [location of repo]/src -n "Hatchd-eggbox" -o [location of repo]/compiled/
 
