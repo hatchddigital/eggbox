@@ -2,7 +2,7 @@
 
 A custom, configurable icon font set using a slightly modified version of the brilliant [Fontcustom](http://fontcustom.com/) Ruby Gem (v0.1.1), by [Yifei Zhang](https://twitter.com/exYZ) and [Joshua Gross](https://twitter.com/endtwist). Icons are from the [Snowcone](http://tangentsnowball.github.com/Snowcone/index.html) icon webfont set by Tangent Snowball.
 
-## To install
+## To install (on Mac OS)
 
 ### Step 1: Install the modified Fontcustom ruby gem
 
