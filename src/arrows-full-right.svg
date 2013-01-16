@@ -2,7 +2,7 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+	 width="512px" height="635px" viewBox="0 0 512 635" enable-background="new 0 0 512 635" xml:space="preserve">
 <g id="Layer_1_1_">
 	<g id="Grid" display="none">
 		<g display="inline">
@@ -36,9 +36,9 @@
 			<line fill="none" stroke="#B35047" x1="0" y1="416" x2="512" y2="416"/>
 			<line fill="none" stroke="#B35047" x1="0" y1="448" x2="512" y2="448"/>
 			<line fill="none" stroke="#B35047" x1="0" y1="480" x2="512" y2="480"/>
-			<rect fill="none" stroke="#B35047" width="512" height="512"/>
+			<rect x="0" y="0" fill="none" stroke="#B35047" width="512" height="512"/>
 		</g>
 	</g>
 </g>
-<polygon id="Right" fill="#1D1D1B" points="257,154 1,154 1,346.033 257,346 257,442 513,250 257,58 "/>
+<polygon id="Right" fill="#1D1D1B" points="257,221.5 1,221.5 1,413.533 257,413.5 257,509.5 513,317.5 257,125.5 "/>
 </svg>
