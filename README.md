@@ -1,35 +1,26 @@
 # Eggbox
 
-A custom, configurable icon font set using a slightly modified version of the brilliant [Fontcustom](http://fontcustom.com/) Ruby Gem (v0.1.1), by [Yifei Zhang](https://twitter.com/exYZ) and [Joshua Gross](https://twitter.com/endtwist). Icons are from the [Snowcone](http://tangentsnowball.github.com/Snowcone/index.html) icon webfont set by Tangent Snowball.
+A custom, configurable icon font set using the brilliant
+[Fontcustom](http://fontcustom.com/) Ruby Gem (v0.1.1), by
+[Yifei Zhang](https://twitter.com/exYZ) and
+[Joshua Gross](https://twitter.com/endtwist). Many icons are from
+the [Snowcone](http://tangentsnowball.github.com/Snowcone/index.html)
+icon webfont set by Tangent Snowball.
 
 ## To install (on Mac OS)
 
-### Step 1: Install the modified Fontcustom ruby gem
+### Step 1: Install the Fontcustom ruby gem
 
-1. If on a Mac, install xCode from the App store, and enable Command Line Tools
+    gem install fontcustom
 
-		(Preferences > Downloads > Command Line Tools)
+#### * Dependancies:
 
-2. Clone the Fontcustom repo we've forked and modified
-
-		git clone git@github.com:hatchddigital/fontcustom.git
-
-3. Install Homebrew
-
-		ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
-
-4. Install fontforge
-
-		sudo brew install fontforge eot-utils ttfautohint
-
-5. Install the gem from the cloned repo
-
-		cd/[path-to-repo]/
-		sudo gem install fontcustom
-
-Note: If you accidentally install the Gem from the Ruby Gem site this will wipe the slate clean:
-
-		sudo gem uninstall fontcustom
+- xCode (get from the App store), with Command Line Tools enabled
+  (Preferences > Downloads > Command Line Tools)
+- Homebrew
+  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+- Fontforge
+  brew install fontforge eot-utils ttfautohint
 
 ### Step 2: Clone the Eggbox repo and generate the icon set
 
@@ -39,5 +30,6 @@ Note: If you accidentally install the Gem from the Ruby Gem site this will wipe 
 
 2. Generate your first icon set
 
-		fontcustom compile [location of repo]/src -n "Hatchd-eggbox" -o [location of repo]/compiled/
+		fontcustom compile src
 
+To change eggbox settings, modify src/fontcustom.yml
