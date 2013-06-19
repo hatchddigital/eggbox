@@ -61,7 +61,7 @@ css_prefix: eggbox
 #
 # default: none
 
-font_face_path: ../static/fonts/eggbox
+font_face_path: ../fonts/eggbox
 
 # ---------------------------------------------------------------------------- #
 # Debug
