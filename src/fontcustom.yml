@@ -52,7 +52,7 @@ file_hash: false
 #
 # default: icon-
 
-css_prefix: eggbox-
+css_prefix: eggbox
 
 # ---------------------------------------------------------------------------- #
 # @Font-face Path
