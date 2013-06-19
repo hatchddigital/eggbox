@@ -8,7 +8,7 @@
 		<h1 class="demo-header">Your eggbox, &quot;<%= @opts[:font_name] %>&quot; contains <%= @data[:glyphs].length %> glyphs</h1>
 		<ul class="demo-iconlist clearfix">
 			<% @data[:glyphs].each_with_index do |name, index| %>
-			<li class="<%= @opts[:css_prefix] + name %>"><span class="demo-iconlabel">.<%= @opts[:css_prefix] + name %><br /><%= (61696+index).to_s(16) %> / &amp;#<%= (61696+index) %>;</span></li>
+			<li class="<%= @opts[:css_prefix] + "-" + name %>"><span class="demo-iconlabel">.<%= @opts[:css_prefix] + name %><br /><%= (61696+index).to_s(16) %> / &amp;#<%= (61696+index) %>;</span></li>
             <% end %>
 		</ul>
 	</body>
