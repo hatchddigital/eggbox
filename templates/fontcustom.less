@@ -15,7 +15,7 @@
   font-style: normal;
 }
 
-.eggbox{
+.<%= @opts[:css_prefix] %>{
     &:before{
         display: inline-block;
         font-family: "<%= @opts[:font_name] %>";
@@ -28,7 +28,7 @@
 
 <% @data[:glyphs].each_with_index do |name, index| %>
 .<%= @opts[:css_prefix] + name %>{
-    &:extend(.eggbox all);
+    &:extend(.<%= @opts[:css_prefix] %> all);
     &:before{content: "\<%= (61696+index).to_s(16) %>";
 }
 <% end %>
