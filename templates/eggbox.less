@@ -26,11 +26,13 @@
     }
 }
 
-<% @data[:glyphs].each_with_index do |name, index| %>
-.<%= @opts[:css_prefix] + "-" + name %>{
-    &:extend(.<%= @opts[:css_prefix] %> all);
-    &:before{content: "\<%= (61696+index).to_s(16) %>";
+#<%= @opts[:css_prefix] %>{
+    <% @data[:glyphs].each_with_index do |name, index| %>
+    .<%= @opts[:css_prefix] + "-" + name %>{
+        &:extend(.<%= @opts[:css_prefix] %> all);
+        &:before{content: "\<%= (61696+index).to_s(16) %>";
+    }
+    <% end %>
 }
-<% end %>
 
 
