@@ -30,7 +30,7 @@
     <% @data[:glyphs].each_with_index do |name, index| %>
     .<%= name %>(){
         &:extend(.<%= @opts[:css_prefix] %> all);
-        &:before{content: "\<%= (61696+index).to_s(16) %>"};
+        &:before{content:"\<%= (61696+index).to_s(16) %>";}
     }
     <% end %>
 }
