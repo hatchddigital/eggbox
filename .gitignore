@@ -1,8 +1,4 @@
-/compiled/*html
-/compiled/*js
-/compiled/*css
-/compiled/*eot
-/compiled/*svg
-/compiled/*ttf
-/compiled/*woff
 .DS_Store
+compiled/
+tmp/
+exports/
