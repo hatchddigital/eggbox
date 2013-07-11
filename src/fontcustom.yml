@@ -29,8 +29,7 @@ output: compiled
 #
 # default: [ css, preview ]
 
-## Use classes
-templates: [../templates/eggbox.less,../templates/your-eggbox.html,../templates/eggbox-demo.css,../templates/eggbox-array.json]
+templates: [../templates/mixin/eggbox.less,../templates/mixin/your-eggbox.html,../templates/mixin/eggbox-demo.css]
 
 # ---------------------------------------------------------------------------- #
 # Font Name
