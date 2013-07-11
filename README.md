@@ -55,11 +55,13 @@ brew install imagemagick
 ```
 ### Usage
 
+```sh
 python svg2png /path/to/svg -c #000000 -o ~/Desktop/exports/ -s 128x128
+```
 
 Provide a single SVG or a directory of SVG files. You can provide optionals
-to set the output color (in #RRGGBB), the output size (XXxXX in pixels) as
-well as the output directory for each file.
+to set the output color (in `#RRGGBB`), the output size (`PXxPX` in pixels)
+as well as the output directory for each file.
 
 Each exported icon will have a filename matching provided details to allow
 for easy use within CSS fallbacks. The format will be `icon-YYxZZ-RRGGBB.png`
