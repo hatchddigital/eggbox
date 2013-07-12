@@ -44,12 +44,9 @@ def main(argv=sys.argv):
         fill_recursively(_xml.getroot(), color)
         _tmpfd, _tmppath = tempfile.mkstemp(suffix='.svg')
         _xml.write(_tmppath)
-        name = os.path.basename(_file)
-        if size is not None:
-            name += '-%s' % size
-        if color is not None:
-            name += '-%s' % color.replace('#', '')
-        export_png(_tmppath, output, size, name)
+        name = os.path.basename(_file).replace('.svg', '')
+        suffix = '%s%s' % (size or None, color or None)
+        export_png(_tmppath, output, size, '-'.join([name, suffix]))
 
 
 def fill_recursively(root, color=None):
@@ -93,9 +90,7 @@ def export_png(svgpath, exportpath, size=None, name=None):
         :type str
     '''
     if name is None:
-        name = os.path.basename(svgpath)
-    if name.endswith('.svg'):
-        name = name.replace('.svg', '.png')
+        name = os.path.basename(svgpath).replace('.svg', '.png')
     if not name.endswith('.png'):
         name = '%s.png' % name
     cmd = ['convert', '-background', 'transparent']

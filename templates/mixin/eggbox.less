@@ -10,7 +10,7 @@
     /* Size */
     @eggbox-size:16px;
     /* Colours */
-    @eggbox-col--default:"000000";
+    @eggbox-col--default:"#000000";
     /* Fallback image path */
     @eggbox-imagepath:~"static/images/<%= @opts[:css_prefix] %>";
 
@@ -49,12 +49,12 @@
 
 #<%= @opts[:css_prefix] %>{
     <% @data[:glyphs].each_with_index do |name, index| %>
-    .<%= name %>(@colour:@eggbox-col--default){
+    .<%= name %>(@colour:@eggbox-col--default, @size:@eggbox-size){
         &:extend(.<%= @opts[:css_prefix] %> all);
         &:before{content: "\<%= (61696+index).to_s(16) %>";}
         .lt-ie9 &{
             &:before{
-                background-image:url("@{eggbox-imagepath}/png/<%= name %>--@{colour}.png");
+                background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}@{colour}.png");
             }
         }
         .lt-ie8 &{

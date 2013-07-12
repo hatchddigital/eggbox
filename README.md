@@ -60,6 +60,6 @@ to set the output color (in `#RRGGBB`), the output size (`PXxPX` in pixels)
 as well as the output directory for each file.
 
 Each exported icon will have a filename matching provided details to allow
-for easy use within CSS fallbacks. The format will be `icon-YYxZZ-RRGGBB.png`
-for the above example would be `icon-128x128-000000.png` within the provided
+for easy use within CSS fallbacks. The format will be `icon-YYxZZ#RRGGBB.png`
+for the above example would be `icon-128x128#000000.png` within the provided
 export directory.
