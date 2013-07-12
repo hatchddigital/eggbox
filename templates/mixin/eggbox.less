@@ -8,12 +8,11 @@
  * Settings
  */
     /* Size */
-    @eggbox-size:15px;
+    @eggbox-size:16px;
     /* Colours */
-    @eggbox-col-white:"ffffff";
     @eggbox-col--default:"#000000";
     /* Fallback image path */
-    @eggbox-imagepath:~"../images/<%= @opts[:css_prefix] %>";
+    @eggbox-imagepath:~"static/images/<%= @opts[:css_prefix] %>";
 
 
 @font-face {
@@ -43,7 +42,7 @@
             height:@eggbox-size;
             background-color:transparent;
             background-repeat:no-repeat;
-            background-position:center center;
+            background-position:top left;
         }
     }
 }
@@ -58,7 +57,7 @@
 
 #<%= @opts[:css_prefix] %>{
     <% @data[:glyphs].each_with_index do |name, index| %>
-    .<%= name %>(@colour:@eggbox-col--default){
+    .<%= name %>(@colour:@eggbox-col--default, @size:@eggbox-size){
         //&:extend(.<%= @opts[:css_prefix] %> all);
         &:before{
             content: "\<%= (61696+index).to_s(16) %>";
@@ -77,16 +76,16 @@
                 background-color:transparent;
                 background-repeat:no-repeat;
                 background-position:top left;
-                background-image:url("@{eggbox-imagepath}/png/<%= name %>--@{colour}.png");
+                background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}@{colour}.png");
             }
         }
         .lt-ie8 &{
             zoom:~"expression(this.runtimeStyle.zoom='1',this.appendChild( document.createElement('div') ).className='<%= @opts[:css_prefix] %>',this.insertBefore( document.createElement('div') ))";
             .<%= @opts[:css_prefix] %>{
-                background-image:url("@{eggbox-imagepath}/png/<%= name %>--@{colour}.png");
+                background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}@{colour}.png");
             }
+
         }
     }
     <% end %>
 }
-
