@@ -8,11 +8,13 @@
  * Settings
  */
     /* Size */
-    @eggbox-size:16px;
+    @eggbox-size:15px;
     /* Colours */
-    @eggbox-col--default:"000000";
+    @eggbox-col--default:"4f4f4f";
+    @eggbox-col-white:"ffffff";
+    @eggbox-col-pink:"dd3b70";
     /* Fallback image path */
-    @eggbox-imagepath:~"static/images/<%= @opts[:css_prefix] %>";
+    @eggbox-imagepath:~"../images/<%= @opts[:css_prefix] %>";
 
 
 @font-face {
@@ -42,23 +44,48 @@
             height:@eggbox-size;
             background-color:transparent;
             background-repeat:no-repeat;
-            background-position:top left;
+            background-position:center center;
         }
     }
+}
+.lt-ie8 .eggbox{
+    display:inline-block;
+    width:@eggbox-size;
+    height:@eggbox-size;
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-position:center center;
 }
 
 #<%= @opts[:css_prefix] %>{
     <% @data[:glyphs].each_with_index do |name, index| %>
     .<%= name %>(@colour:@eggbox-col--default){
-        &:extend(.<%= @opts[:css_prefix] %> all);
-        &:before{content: "\<%= (61696+index).to_s(16) %>";}
+        //&:extend(.<%= @opts[:css_prefix] %> all);
+        &:before{
+            content: "\<%= (61696+index).to_s(16) %>";
+            display:inline-block;
+            font-family:"<%= @opts[:font_name] %>";
+            font-weight:normal;
+            font-style:normal;
+            text-decoration:none;
+            -webkit-font-smoothing:antialiased;
+        }
         .lt-ie9 &{
             &:before{
+                content:" ";
+                width:@eggbox-size;
+                height:@eggbox-size;
+                background-color:transparent;
+                background-repeat:no-repeat;
+                background-position:top left;
                 background-image:url("@{eggbox-imagepath}/png/<%= name %>--@{colour}.png");
             }
         }
         .lt-ie8 &{
-            zoom:~"expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#x<%= (61696+index).to_s(16) %>;&nbsp;')";
+            zoom:~"expression(this.runtimeStyle.zoom='1',this.appendChild( document.createElement('div') ).className='<%= @opts[:css_prefix] %>',this.insertBefore( document.createElement('div') ))";
+            .<%= @opts[:css_prefix] %>{
+                background-image:url("@{eggbox-imagepath}/png/<%= name %>--@{colour}.png");
+            }
         }
     }
     <% end %>
