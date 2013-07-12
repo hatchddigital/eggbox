@@ -23,6 +23,9 @@ def main(argv=sys.argv):
         >> python svg2png path/to/svgs/ #000000 15x15
     '''
 
+    if _dependencycheck() is False:
+        return 0
+
     args = parser.parse_args()
     iconpath = args.path
     color = args.color
@@ -80,6 +83,14 @@ def fill_recursively(root, color=None):
 def export_png(svgpath, exportpath, size=None, name=None):
     ''' Convert an SVG to a PNG at provided size using ImageMagick
         tool 'convert'.
+
+        :param svgpath /path/to/file.svg
+        :type str
+        :param exportpath /path/to/outputs/
+        :param size expected PNG size in YYxZZ pixels
+        :type str
+        :param name Optional filename of output PNG
+        :type str
     '''
     if name is None:
         name = os.path.basename(svgpath)
@@ -92,6 +103,21 @@ def export_png(svgpath, exportpath, size=None, name=None):
         cmd += ['-resize', size]
     cmd += [svgpath, os.path.join(exportpath, name)]
     subprocess.call(cmd, stderr=subprocess.STDOUT,)
+
+
+def _dependencycheck():
+    ''' Validate all required dependencies are installed.
+    '''
+    message = "Dependency Failure: %s is not installed."
+    try:
+        # Check `covert` exists and supress any output from command
+        subprocess.Popen(['convert', '--version'],
+                         stderr=subprocess.STDOUT,
+                         stdout=subprocess.PIPE).communicate()[0]
+    except OSError:
+        print message % 'ImageMagick'
+        return False
+    return True
 
 
 if __name__ == '__main__':

@@ -9,55 +9,51 @@ icon webfont set by Tangent Snowball.
 
 ## To install (on Mac OS)
 
-### Step 1: Install the Fontcustom ruby gem
+### Step 1: Install the Fontcustom Ruby gem
 
     gem install fontcustom
 
 #### * Dependancies:
 
-- xCode (get from the App store), with Command Line Tools enabled
-  (Preferences > Downloads > Command Line Tools)
+- Xcode (available from the AppStore) with Command Line Tools enabled
+  (Preferences > Downloads > Command Line Tools > Install)
 - Homebrew
-  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+  `ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"`
 - Fontforge
-  brew install fontforge eot-utils ttfautohint
+  `brew install fontforge eot-utils ttfautohint`
 
 ### Step 2: Clone the Eggbox repo and generate the icon set
 
 1. Clone the eggbox repo
 
-		git clone git@github.com:hatchddigital/eggbox.git
+    git clone git@github.com:hatchddigital/eggbox.git
 
 2. Generate your first icon set
 
-		fontcustom compile src
+    fontcustom compile src
 
-To change eggbox settings, modify src/fontcustom.yml
+To change eggbox settings, modify src/fontcustom.yml as required.
 
 ## PNG fallback
 
-This repo provides the means for generated fallback PNG images for every
-icon in a set of sizes and colors as required.
+Eggbox also provides the means to generate fallback PNG images for every
+icon at the size and of the color required for your project. These should
+be applied with Modernizr (or similar) within your CSS class that require
+an icon.
 
-### Requirements
+### Install requirements for `svg2png`
 
-- python
-- imagemagick
+#### * Dependancies:
 
-### Installation (on Mac OS)
+This fallback requires Python and ImageMagick. If you are missing either
+of these tools you can also install them with Homebrew.
 
-If have brew installed you can easily install requirements otherwise
-feel free to find instructions from your preferred package providers.
+- Python `brew install python`
+- ImageMagick's convert `brew install imagemagick`
 
-```sh
-brew install python
-brew install imagemagick
-```
 ### Usage
 
-```sh
-python svg2png /path/to/svg -c #000000 -o ~/Desktop/exports/ -s 128x128
-```
+    python svg2png /path/to/svg -c #000000 -o ~/Desktop/exports/ -s 128x128
 
 Provide a single SVG or a directory of SVG files. You can provide optionals
 to set the output color (in `#RRGGBB`), the output size (`PXxPX` in pixels)
