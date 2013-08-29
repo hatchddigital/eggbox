@@ -8,9 +8,9 @@
  * Settings
  */
     /* Size */
-    @eggbox-size:16px;
+    @eggbox-size:~"16x16";
     /* Colours */
-    @eggbox-col--default:"#000000";
+    @eggbox-col--default:"000000";
     /* Fallback image path */
     @eggbox-imagepath:~"static/images/<%= @opts[:css_prefix] %>";
 
@@ -35,30 +35,11 @@
         text-decoration:none;
         -webkit-font-smoothing:antialiased;
     }
-    .lt-ie9 &{
-        &:before{
-            content:" ";
-            width:@eggbox-size;
-            height:@eggbox-size;
-            background-color:transparent;
-            background-repeat:no-repeat;
-            background-position:top left;
-        }
-    }
-}
-.lt-ie8 .eggbox{
-    display:inline-block;
-    width:@eggbox-size;
-    height:@eggbox-size;
-    background-color:transparent;
-    background-repeat:no-repeat;
-    background-position:center center;
 }
 
 #<%= @opts[:css_prefix] %>{
     <% @data[:glyphs].each_with_index do |name, index| %>
     .<%= name %>(@colour:@eggbox-col--default, @size:@eggbox-size){
-        //&:extend(.<%= @opts[:css_prefix] %> all);
         &:before{
             content: "\<%= (61696+index).to_s(16) %>";
             display:inline-block;
@@ -68,24 +49,13 @@
             text-decoration:none;
             -webkit-font-smoothing:antialiased;
         }
-        .lt-ie9 &{
-            &:before{
-                content:" ";
-                width:@eggbox-size;
-                height:@eggbox-size;
-                background-color:transparent;
-                background-repeat:no-repeat;
-                background-position:top left;
-                background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}@{colour}.png");
-            }
-        }
-        .lt-ie8 &{
-            zoom:~"expression(this.runtimeStyle.zoom='1',this.appendChild( document.createElement('div') ).className='<%= @opts[:css_prefix] %>',this.insertBefore( document.createElement('div') ))";
-            .<%= @opts[:css_prefix] %>{
-                background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}@{colour}.png");
-            }
-
-        }
+    }
+    <% end %>
+}
+#<%= @opts[:css_prefix] %>-fallback{
+    <% @data[:glyphs].each_with_index do |name, index| %>
+    .<%= name %>(@colour:@eggbox-col--default,@size:@eggbox-size){
+        background-image:url("@{eggbox-imagepath}/png/<%= name %>-@{size}-@{colour}.png");
     }
     <% end %>
 }
