@@ -45,7 +45,7 @@ def main(argv=sys.argv):
         _tmpfd, _tmppath = tempfile.mkstemp(suffix='.svg')
         _xml.write(_tmppath)
         name = os.path.basename(_file).replace('.svg', '')
-        suffix = '%s%s' % (size or None, color or None)
+        suffix = '%s-%s' % (size or None, color.replace('#', '') or None)
         export_png(_tmppath, output, size, '-'.join([name, suffix]))
 
 
