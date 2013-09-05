@@ -39,8 +39,19 @@
 
 #<%= @opts[:css_prefix] %>{
     <% @data[:glyphs].each_with_index do |name, index| %>
-    .<%= name %>(@colour:@eggbox-col--default, @size:@eggbox-size){
+    .<%= name %>(@pos:before) when(@pos = before){
         &:before{
+            content: "\<%= (61696+index).to_s(16) %>";
+            display:inline-block;
+            font-family:"<%= @opts[:font_name] %>";
+            font-weight:normal;
+            font-style:normal;
+            text-decoration:none;
+            -webkit-font-smoothing:antialiased;
+        }
+    }
+    .<%= name %>(@pos) when(@pos = after){
+        &:after{
             content: "\<%= (61696+index).to_s(16) %>";
             display:inline-block;
             font-family:"<%= @opts[:font_name] %>";
