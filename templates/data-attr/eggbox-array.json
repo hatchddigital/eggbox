@@ -1,3 +1,0 @@
-{<% @data[:glyphs].each_with_index do |name, index| %>
-    "<%= name %>": "&#<%= (61696+index) %>"<% if @data[:glyphs].length != index+1 %>,<% end %><% end %>
-}

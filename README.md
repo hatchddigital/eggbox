@@ -1,11 +1,19 @@
 # Eggbox
 
-A custom, configurable icon font set using the brilliant
-[Fontcustom](http://fontcustom.com/) Ruby Gem (v0.1.1), by
+A custom, configurable icon font set using the
+[Fontcustom](http://fontcustom.com/) Ruby Gem, by
 [Yifei Zhang](https://twitter.com/exYZ) and
 [Joshua Gross](https://twitter.com/endtwist). Many icons are from
 the [Snowcone](http://tangentsnowball.github.com/Snowcone/index.html)
 icon webfont set by Tangent Snowball.
+
+## Usage
+
+Express the mixin as below. An argument can be added, to specify whether the
+icon gets added using a :before or :after pseudo element. By default, it will
+use :before.
+
+/#eggbox > .[icon-name](before|after);
 
 ## To install (on Mac OS)
 
@@ -59,7 +67,10 @@ Provide a single SVG or a directory of SVG files. You can provide optionals
 to set the output color (in `#RRGGBB`), the output size (`PXxPX` in pixels)
 as well as the output directory for each file.
 
-Each exported icon will have a filename matching provided details to allow
-for easy use within CSS fallbacks. The format will be `icon-YYxZZ#RRGGBB.png`
-for the above example would be `icon-128x128#000000.png` within the provided
-export directory.
+Within the eggbox .LESS file, a mixin has been provided to allow easy use of
+these fallbacks:
+
+/#eggbox-fallback > .[icon-name](color|size)
+
+To adjust the default image path, size and colour go to the settings block
+(line 7) of the generated eggbox.less file.
