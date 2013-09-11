@@ -29,7 +29,7 @@ output: compiled
 #
 # default: [ css, preview ]
 
-templates: [../templates/mixin/eggbox.less,../templates/mixin/your-eggbox.html,../templates/mixin/eggbox-demo.css]
+templates: [../templates/eggbox.less,../templates/your-eggbox.html,../templates/eggbox-demo.css]
 
 # ---------------------------------------------------------------------------- #
 # Font Name
