@@ -13,7 +13,7 @@ Express the mixin as below. An argument can be added, to specify whether the
 icon gets added using a :before or :after pseudo element. By default, it will
 use :before.
 
-/#eggbox > .[icon-name](before|after);
+    #eggbox > .[icon-name](before|after);
 
 ## To install (on Mac OS)
 
@@ -70,7 +70,7 @@ as well as the output directory for each file.
 Within the eggbox .LESS file, a mixin has been provided to allow easy use of
 these fallbacks:
 
-/#eggbox-fallback > .[icon-name](color|size)
+    #eggbox-fallback > .[icon-name](color|size)
 
 To adjust the default image path, size and colour go to the settings block
 (line 7) of the generated eggbox.less file.
