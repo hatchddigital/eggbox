@@ -71,7 +71,7 @@ def fill_recursively(root, color=None):
         if color is not None:
             if 'stroke' in el.attrib:
                 el.attrib['stroke'] = color
-            elif 'fill' in el.attrib:
+            else:
                 el.attrib['fill'] = color
     # Remove all nodes set as clear
     for el in removals:
