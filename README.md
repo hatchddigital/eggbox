@@ -1,11 +1,12 @@
 # Eggbox
 
-A custom, configurable icon font set using the
-[Fontcustom](http://fontcustom.com/) Ruby Gem, by
-[Yifei Zhang](https://twitter.com/exYZ) and
-[Joshua Gross](https://twitter.com/endtwist). Many icons are from
-the [Snowcone](http://tangentsnowball.github.com/Snowcone/index.html)
-icon webfont set by Tangent Snowball.
+A custom, configurable icon font set, compiled with [grunt-webfont](https://github.com/sapegin/grunt-webfont)
+
+## Dependancies
+
+Fontforge:
+
+    brew install fontforge ttfautohint
 
 ## Usage
 
@@ -14,33 +15,6 @@ icon gets added using a :before or :after pseudo element. By default, it will
 use :before.
 
     #eggbox > .[icon-name](before|after);
-
-## To install (on Mac OS)
-
-### Step 1: Install the Fontcustom Ruby gem
-
-    gem install fontcustom
-
-#### * Dependancies:
-
-- Xcode (available from the AppStore) with Command Line Tools enabled
-  (Preferences > Downloads > Command Line Tools > Install)
-- Homebrew
-  `ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"`
-- Fontforge
-  `brew install fontforge eot-utils ttfautohint`
-
-### Step 2: Clone the Eggbox repo and generate the icon set
-
-1. Clone the eggbox repo
-
-    git clone git@github.com:hatchddigital/eggbox.git
-
-2. Generate your first icon set
-
-    fontcustom compile src
-
-To change eggbox settings, modify src/fontcustom.yml as required.
 
 ## PNG fallback
 
