@@ -17,14 +17,6 @@
 <% if (iconsStyles && stylesheet === 'less') { %>
 
     /**
-     * Fallback settings
-     */
-        @eggbox-size:~"16x16";
-        @eggbox-imagepath:~"static/images/eggbox";
-        /* Fallback colours */
-        @eggbox-col--default:"000000";
-
-    /**
      * LESS Mixins
      */
         #eggbox{
@@ -63,6 +55,8 @@
     /**
      * Fallbacks for browsers that don't support
      * @font-face and generated content
+     *
+     * Set fallback variables in settings.less
      */
         #eggbox-fallback{
             <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
