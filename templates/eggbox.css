@@ -24,6 +24,7 @@
                 .<%= glyphs[glyphIdx] %>(@pos:before) when(@pos = before){
                     &:before {
                         content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
+                            font-family:"<%= fontBaseName %>";
                             display:inline-block;
                             font-weight:normal;
                             font-style:normal;
@@ -38,6 +39,7 @@
                 .eggbox-<%= glyphs[glyphIdx] %>(@pos) when(@pos = after){
                     &:before {
                         content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
+                            font-family:"<%= fontBaseName %>";
                             display:inline-block;
                             font-weight:normal;
                             font-style:normal;
