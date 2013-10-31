@@ -37,7 +37,7 @@
                     }
                 }
                 .eggbox-<%= glyphs[glyphIdx] %>(@pos) when(@pos = after){
-                    &:before {
+                    &:after {
                         content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
                             font-family:"<%= fontBaseName %>";
                             display:inline-block;
