@@ -36,8 +36,8 @@
                             -moz-osx-font-smoothing:grayscale;
                     }
                 }
-                .eggbox-<%= glyphs[glyphIdx] %>(@pos) when(@pos = after){
-                    &:before {
+                .<%= glyphs[glyphIdx] %>(@pos) when(@pos = after){
+                    &:after {
                         content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
                             font-family:"<%= fontBaseName %>";
                             display:inline-block;
