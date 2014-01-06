@@ -17,9 +17,7 @@
 <% if (iconsStyles && stylesheet === 'scss') { %>
 
     $eggboxicons: (
-    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        '<%= glyphs[glyphIdx] %>' : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',
-    <% } %>
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>'<%= glyphs[glyphIdx] %>' : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',<% } %>
     );
 
     @function match($haystack, $needle) {
