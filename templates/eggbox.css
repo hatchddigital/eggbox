@@ -16,12 +16,10 @@
 <% } %>
 
 <% if (iconsStyles && stylesheet === 'scss') { %>
-
     $eggboxicons: (
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
         '<%= glyphs[glyphIdx] %>' : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',<% } %>
     );
-
     @function match($haystack, $needle) {
         @each $item in $haystack {
             $index: index($item, $needle);
@@ -59,13 +57,20 @@
      *
      * Set fallback variables in settings.less
      */
-        @mixin eggbox-fallback($icon: false){
+        @mixin eggbox-fallback($icon: false, $styles: styles){
             $colour:$eggbox-col--default;
             $size:$eggbox-size;
-            background-image:url("#{$eggbox-imagepath}/png/match($eggboxicons, $icon)-#{$size}-#{$colour}.png");
+            background-image:url("#{$eggbox-imagepath}/#{$icon}-#{$size}-#{$colour}.png");
+            @if $styles != nostyles{
+                background-position:center left;
+                background-repeat:no-repeat;
+            }
         }
 
+
 <% } %>
+
+
 
 <% if (iconsStyles && stylesheet === 'css') { %>
 
