@@ -14,59 +14,45 @@
     }
 <% } %>
 
-<% if (iconsStyles && stylesheet === 'less') { %>
+<% if (iconsStyles && stylesheet === 'scss') { %>
 
-    /**
-     * LESS Mixins
-     */
-        #eggbox{
-            <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-                .<%= glyphs[glyphIdx] %>(@pos:before) when(@pos = before){
-                    &:before {
-                        content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
-                            font-family:"<%= fontBaseName %>";
-                            display:inline-block;
-                            font-weight:normal;
-                            font-style:normal;
-                            speak:none;
-                            text-decoration:inherit;
-                            text-transform:none;
-                            text-rendering:optimizeLegibility;
-                            -webkit-font-smoothing:antialiased;
-                            -moz-osx-font-smoothing:grayscale;
-                    }
-                }
-                .<%= glyphs[glyphIdx] %>(@pos) when(@pos = after){
-                    &:after {
-                        content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
-                            font-family:"<%= fontBaseName %>";
-                            display:inline-block;
-                            font-weight:normal;
-                            font-style:normal;
-                            speak:none;
-                            text-decoration:inherit;
-                            text-transform:none;
-                            text-rendering:optimizeLegibility;
-                            -webkit-font-smoothing:antialiased;
-                            -moz-osx-font-smoothing:grayscale;
-                    }
-                }
-            <% } %>
-        }
+    $eggboxicons: (
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+        '<%= glyphs[glyphIdx] %>' : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',
+    <% } %>
+    );
 
-    /**
-     * Fallbacks for browsers that don't support
-     * @font-face and generated content
-     *
-     * Set fallback variables in settings.less
-     */
-        #eggbox-fallback{
-            <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-                    .<%= glyphs[glyphIdx] %>(@colour:@eggbox-col--default,@size:@eggbox-size){
-                        background-image:url("@{eggbox-imagepath}/png/<%= glyphs[glyphIdx] %>-@{size}-@{colour}.png");
-                    }
-            <% } %>
+    @function match($haystack, $needle) {
+        @each $item in $haystack {
+            $index: index($item, $needle);
+            @if $index {
+                $return: if($index == 1, 2, $index);
+                @return nth($item, $return);
+            }
         }
+        @return false;
+    }
+
+    @mixin eggbox($position: before, $icon: false, $styles: styles ) {
+        &:#{$position} {
+            @if $icon {
+                content: match($eggboxicons, $icon);
+            }
+            @if $styles != nostyles{
+                font-family:"<%= fontBaseName %>";
+                display:inline-block;
+                font-weight:normal;
+                font-style:normal;
+                speak:none;
+                text-decoration:inherit;
+                text-transform:none;
+                text-rendering:optimizeLegibility;
+                -webkit-font-smoothing:antialiased;
+                -moz-osx-font-smoothing:grayscale;
+            }
+        }
+    }
+
 <% } %>
 
 <% if (iconsStyles && stylesheet === 'css') { %>
