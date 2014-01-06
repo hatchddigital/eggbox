@@ -33,7 +33,7 @@
         @return false;
     }
 
-    @mixin eggbox($position: before, $icon: false, $styles: styles ) {
+    @mixin eggbox($icon: false, $position: before, $styles: styles ) {
         &:#{$position} {
             @if $icon {
                 content: match($eggboxicons, $icon);
