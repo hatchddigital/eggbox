@@ -20,44 +20,51 @@
 <% } %>
 
 <% if (iconsStyles && stylesheet === 'scss') { %>
-    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        $<%= glyphs[glyphIdx] %> : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>';<% } %>
 
-    @mixin eggbox($icon: false, $position: before, $styles: styles ) {
-        &:#{$position} {
-            @if $icon {
-                content:$icon;
-            }
-            @if $styles != nostyles{
-                font-family:"<%= fontBaseName %>";
-                display:inline-block;
-                font-weight:normal;
-                font-style:normal;
-                speak:none;
-                text-decoration:inherit;
-                text-transform:none;
-                text-rendering:optimizeLegibility;
-                -webkit-font-smoothing:antialiased;
-                -moz-osx-font-smoothing:grayscale;
-            }
+/**
+ * List of icons
+ */
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+    $<%= glyphs[glyphIdx] %> : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>';<% } %>
+
+/**
+ * Mixin
+ */
+@mixin eggbox($icon: false, $position: before, $styles: styles ) {
+    &:#{$position} {
+        @if $icon {
+            content:$icon;
+        }
+        @if $styles != nostyles{
+            font-family:"<%= fontBaseName %>";
+            display:inline-block;
+            font-weight:normal;
+            font-style:normal;
+            speak:none;
+            text-decoration:inherit;
+            text-transform:none;
+            text-rendering:optimizeLegibility;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
     }
+}
 
-    /**
-     * Fallbacks for browsers that don't support
-     * @font-face and generated content
-     *
-     * Set fallback variables in settings.less
-     */
-        @mixin eggbox-fallback($icon: false, $styles: styles){
-            $colour:$eggbox-col--default;
-            $size:$eggbox-size;
-            background-image:url("#{$eggbox-imagepath}/#{$icon}-#{$size}-#{$colour}.png");
-            @if $styles != nostyles{
-                background-position:center left;
-                background-repeat:no-repeat;
-            }
+/**
+ * Fallbacks for browsers that don't support
+ * @font-face and generated content
+ *
+ * Set fallback variables in settings.less
+ */
+    @mixin eggbox-fallback($icon: false, $styles: styles){
+        $colour:$eggbox-col--default;
+        $size:$eggbox-size;
+        background-image:url("#{$eggbox-imagepath}/#{$icon}-#{$size}-#{$colour}.png");
+        @if $styles != nostyles{
+            background-position:center left;
+            background-repeat:no-repeat;
         }
+    }
 
 
 <% } %>
