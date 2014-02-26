@@ -33,7 +33,7 @@
 @mixin eggbox($icon: false, $position: before, $styles: styles ) {
     &:#{$position} {
         @if $icon {
-            content:$icon;
+            content:nth($icon,1);
         }
         @if $styles != nostyles{
             font-family:"<%= fontBaseName %>";
@@ -59,7 +59,7 @@
     @mixin eggbox-fallback($icon: false, $styles: styles){
         $colour:$eggbox-col--default;
         $size:$eggbox-size;
-        background-image:url("#{$eggbox-imagepath}/#{$icon}-#{$size}-#{$colour}.png");
+        background-image:url("#{$eggbox-imagepath}/#{nth($icon,2)}-#{$size}-#{$colour}.png");
         @if $styles != nostyles{
             background-position:center left;
             background-repeat:no-repeat;
