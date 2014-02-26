@@ -25,7 +25,7 @@
  * List of icons
  */
 <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-    $eggbox--<%= glyphs[glyphIdx] %> : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>';<% } %>
+    $eggbox--<%= glyphs[glyphIdx] %> : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>','<%= glyphs[glyphIdx] %>';<% } %>
 
 /**
  * Mixin
