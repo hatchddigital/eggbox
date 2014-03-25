@@ -59,8 +59,7 @@
  *
  * Set fallback variables in settings.less
  */
-$eggbox-size
-    @mixin eggbox-fallback($icon: false, $colour: $black, $size:$eggbox-size, $styles: styles){
+    @mixin eggbox-fallback($icon: false, $colour: $black, $styles: styles){
         $colour:$eggbox-col--default;
         $size:$eggbox-size;
         background-image:url("#{$eggbox-imagepath}/#{nth($icon,1)}-#{$size}-#{$colour}.png");
