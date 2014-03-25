@@ -53,6 +53,23 @@
         }
     }
 
+/**
+ * Fallbacks for browsers that don't support
+ * @font-face and generated content
+ *
+ * Set fallback variables in settings.less
+ */
+$eggbox-size
+    @mixin eggbox-fallback($icon: false, $colour: $black, $size:$eggbox-size, $styles: styles){
+        $colour:$eggbox-col--default;
+        $size:$eggbox-size;
+        background-image:url("#{$eggbox-imagepath}/#{nth($icon,1)}-#{$size}-#{$colour}.png");
+        @if $styles != nostyles{
+            background-position:center left;
+            background-repeat:no-repeat;
+        }
+    }
+
 <% } %>
 
 <% if (iconsStyles && stylesheet === 'css') { %>
