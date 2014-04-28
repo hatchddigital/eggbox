@@ -6,8 +6,8 @@
 
 <% if (fontfaceStyles) { %>
     @font-face {
-        font-family:"<%= fontBaseName %>";
-        <% if (eot) { %>src:<%= fontSrc1 %>;<% }%>
+        font-family:"<%= fontBaseName %>";<% if (fontSrc1) { %>
+        src:<%= fontSrc1 %>;<% }%>
         src:<%= fontSrc2 %>;
         font-weight:normal;
         font-style:normal;
@@ -18,7 +18,8 @@
 
     $eggboxicons: (
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        '<%= glyphs[glyphIdx] %>' : '<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',<% } %>
+        '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',
+    <% } %>
     );
 
     @function match($haystack, $needle) {
@@ -32,9 +33,6 @@
         @return false;
     }
 
-    /**
-    * Mixin
-    */
     @mixin eggbox($icon: false, $position: before, $styles: styles ) {
         &:#{$position} {
             @if $icon {
@@ -55,22 +53,19 @@
         }
     }
 
-    /**
-     * Fallbacks for browsers that don't support
-     * @font-face and generated content
-     *
-     * Set fallback variables in settings.less
-     */
-        @mixin eggbox-fallback($icon: false, $styles: styles){
-            $colour:$eggbox-col--default;
-            $size:$eggbox-size;
-            background-image:url("#{$eggbox-imagepath}/#{nth($icon,2)}-#{$size}-#{$colour}.png");
-            @if $styles != nostyles{
-                background-position:center left;
-                background-repeat:no-repeat;
-            }
+/**
+ * Fallbacks for browsers that don't support
+ * @font-face and generated content
+ *
+ * Set fallback variables in settings.less
+ */
+    @mixin eggbox-fallback($icon: false, $colour: $black, $size: "16x16", $styles: styles){
+        background-image:url("#{$eggbox-imagepath}/#{nth($icon,1)}-#{$size}-#{$colour}.png");
+        @if $styles != nostyles{
+            background-position:center left;
+            background-repeat:no-repeat;
         }
-
+    }
 
 <% } %>
 
@@ -94,7 +89,7 @@
     }
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
         .eggbox-<%= glyphs[glyphIdx] %>:before {
-            content:"<% if (ligatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
+            content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
         }
     <% } %>
 <% } %>
