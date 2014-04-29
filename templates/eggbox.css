@@ -18,7 +18,7 @@
 
     $eggboxicons: (
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>',
+        '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',
     <% } %>
     );
 
@@ -89,7 +89,7 @@
     }
     <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
         .eggbox-<%= glyphs[glyphIdx] %>:before {
-            content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
+            content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>";
         }
     <% } %>
 <% } %>
