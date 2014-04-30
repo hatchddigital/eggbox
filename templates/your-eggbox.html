@@ -30,7 +30,7 @@
                 }
                 <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
                     [data-eggbox="<%= glyphs[glyphIdx] %>"]:before {
-                        content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= (61696+glyphIdx).toString(16) %><% } %>";
+                        content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>";
                     }
                 <% } %>
                 body{
