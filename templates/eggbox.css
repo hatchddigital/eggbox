@@ -17,40 +17,51 @@
 <% if (iconsStyles && stylesheet === 'scss') { %>
 
     $eggboxicons: (
-    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-        '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',
-    <% } %>
+        <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>'<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',<% } %>
     );
 
-    @function match($haystack, $needle) {
-        @each $item in $haystack {
-            $index: index($item, $needle);
-            @if $index {
-                $return: if($index == 1, 2, $index);
-                @return nth($item, $return);
+    /**
+     * Eggbox mixin
+     */
+        @mixin eggbox($icon: false, $position: before, $styles: styles ) {
+            &:#{$position} {
+                @if $icon {
+                    content: map-get($eggboxicons, $icon);
+                }
+                @if $styles != nostyles{
+                    font-family:"<%= fontBaseName %>";
+                    display:inline-block;
+                    font-weight:normal;
+                    font-style:normal;
+                    speak:none;
+                    text-decoration:inherit;
+                    text-transform:none;
+                    -webkit-font-smoothing:antialiased;
+                    -moz-osx-font-smoothing:grayscale;
+                }
             }
         }
-        @return false;
-    }
 
-    @mixin eggbox($icon: false, $position: before, $styles: styles ) {
-        &:#{$position} {
-            @if $icon {
-                content: match($eggboxicons, $icon);
-            }
-            @if $styles != nostyles{
-                font-family:"<%= fontBaseName %>";
-                display:inline-block;
-                font-weight:normal;
-                font-style:normal;
-                speak:none;
-                text-decoration:inherit;
-                text-transform:none;
-                -webkit-font-smoothing:antialiased;
-                -moz-osx-font-smoothing:grayscale;
+    /**
+     * Eggbox classes
+     */
+        [data-eggbox]:before{
+            font-family:"<%= fontBaseName %>";
+            display:inline-block;
+            font-weight:normal;
+            font-style:normal;
+            speak:none;
+            text-decoration:inherit;
+            text-transform:none;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        @each $icon,$glyph in $eggboxicons{
+            [data-eggbox="#{$icon}"]:before{
+              content:'#{$glyph}';
             }
         }
-    }
+
 
 /**
  * Fallbacks for browsers that don't support
@@ -70,6 +81,9 @@
 
 <% if (iconsStyles && stylesheet === 'less') { %>
 
+    /**
+     * Eggbox mixin
+     */
         #eggbox{
             <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
                 .<%= glyphs[glyphIdx] %>(@pos:before) when(@pos = before){
@@ -102,6 +116,27 @@
                 }
             <% } %>
         }
+
+    /**
+     * Eggbox classes
+     */
+        [data-eggbox]:before{
+            font-family:"<%= fontBaseName %>";
+            display:inline-block;
+            font-weight:normal;
+            font-style:normal;
+            speak:none;
+            text-decoration:inherit;
+            text-transform:none;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+            [data-eggbox="<%= glyphs[glyphIdx] %>"]:before {
+                content:"<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>";
+            }
+        <% } %>
+
 
     /**
      * Fallbacks for browsers that don't support
