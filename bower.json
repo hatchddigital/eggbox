@@ -1,3 +1,5 @@
 {
-    "name": "eggbox"
+    "name": "eggbox",
+    "version": "0.4.2",
+    "private": true
 }
