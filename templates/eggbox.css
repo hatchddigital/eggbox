@@ -10,7 +10,8 @@
 /// Eggbox icon mapping
 /// @type Map
 $eggbox-icons: (
-    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>'<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',<% } %>
+    <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+        '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',<% } %>
 );
 
 /// Default eggbox fallback settings
