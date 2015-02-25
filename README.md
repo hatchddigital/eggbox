@@ -49,5 +49,8 @@ p{
 }
 ```
 
-## Changelog
+## Changelog (major changes only)
+
+-0.6.0 - Removed IE7 support (needs empty-coop 0.12.0 onwards)
+
 

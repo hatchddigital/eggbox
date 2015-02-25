@@ -14,17 +14,6 @@ $eggbox-icons: (
         '<%= glyphs[glyphIdx] %>' : '<% if (addLigatures) { %><%= glyphs[glyphIdx] %><% } else { %>\<%= codepoints[glyphIdx] %><% } %>',<% } %>
 );
 
-/// Default eggbox fallback settings
-/// @type Map
-$eggbox-fallbacks:(
-  'color' : '000000',
-  'size' : 16,
-  'url' : '../images/eggbox'
-) !default;
-
-/// Provide eggbox image fallback
-/// @type Variable
-$eggbox-usefallback: true !default;
 
 /// Call an eggbox icon to use
 /// @author Jack Armley
@@ -54,28 +43,6 @@ $eggbox-usefallback: true !default;
       speak:none;
     }
   }
-}
-
-/// Provide an image fallback for an eggbox icon
-/// Should only really come into play for IE7 (so very rarely)
-/// It only outputs a background-image, so usage is flexible
-/// @author Jack Armley
-/// @group Eggbox
-/// @param {String} $icon [false] - Icon to use, from `$eggboxicons`
-/// @param {Map|Variable} $fallbacks [$eggbox-fallbacks] - Fallback properties map to use
-@mixin eggbox-imgfallback($icon: false, $fallbacks: $eggbox-fallbacks){
-
-  // If a different map has been specified, merge
-  // it with the $eggbox-fallbacks map for this instance
-  @if $fallbacks not $eggbox-fallbacks{
-    $fallbacks: map-merge($eggbox-fallbacks,$fallbacks);
-  }
-
-  // Fallback URL
-  // @type Variable
-  $fallback-url: '#{map-get($fallbacks,url)}/#{$icon}-#{map-get($fallbacks,size)}x#{map-get($fallbacks,size)}-#{map-get($fallbacks,color)}.png';
-  background-image: url('#{$fallback-url}');
-
 }
 
 /**
