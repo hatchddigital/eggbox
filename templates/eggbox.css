@@ -42,6 +42,7 @@ $eggbox-icons: (
       -moz-osx-font-smoothing:grayscale;
       speak:none;
     }
+    @content
   }
 }
 
