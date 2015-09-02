@@ -1,0 +1,15 @@
+{
+  "name": "eggbox",
+  "version": "0.6.2",
+  "description": "Eggbox icons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hatchddigital/eggbox"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hatchddigital/eggbox/issues"
+  },
+  "homepage": "https://github.com/hatchddigital/eggbox"
+}
